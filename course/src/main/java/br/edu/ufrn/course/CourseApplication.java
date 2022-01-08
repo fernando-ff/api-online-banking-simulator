@@ -10,10 +10,10 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import br.edu.ufrn.core.property.JwtConfiguration;
 
 @SpringBootApplication
-@EntityScan({"academy.devdojo.youtube.core.model"})
-@EnableJpaRepositories({"academy.devdojo.youtube.core.repository"})
+@EntityScan({"br.edu.ufrn.core.model"})
+@EnableJpaRepositories({"br.edu.ufrn.core.repository"})
 @EnableConfigurationProperties(value = JwtConfiguration.class)
-@ComponentScan("academy.devdojo.youtube")
+@ComponentScan("br.edu.ufrn")
 public class CourseApplication {
 
     public static void main(String[] args) {

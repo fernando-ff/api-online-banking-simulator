@@ -1,4 +1,4 @@
-package academy.devdojo.youtube.auth;
+package br.edu.ufrn.auth;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

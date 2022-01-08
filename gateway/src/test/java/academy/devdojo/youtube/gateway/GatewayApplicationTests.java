@@ -1,4 +1,4 @@
-package academy.devdojo.youtube.gateway;
+package br.edu.ufrn.gateway;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

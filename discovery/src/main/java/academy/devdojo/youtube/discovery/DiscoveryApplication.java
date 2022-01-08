@@ -1,4 +1,4 @@
-package academy.devdojo.youtube.discovery;
+package br.edu.ufrn.discovery;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

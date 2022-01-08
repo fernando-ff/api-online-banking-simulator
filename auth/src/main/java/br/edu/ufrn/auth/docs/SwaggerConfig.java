@@ -1,6 +1,6 @@
-package academy.devdojo.youtube.auth.docs;
+package br.edu.ufrn.auth.docs;
 
-import academy.devdojo.youtube.core.docs.BaseSwaggerConfig;
+import br.edu.ufrn.core.docs.BaseSwaggerConfig;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
@@ -11,6 +11,6 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 public class SwaggerConfig extends BaseSwaggerConfig {
     public SwaggerConfig() {
-        super("academy.devdojo.youtube.auth.endpoint.controller");
+        super("br.edu.ufrn.auth.endpoint.controller");
     }
 }

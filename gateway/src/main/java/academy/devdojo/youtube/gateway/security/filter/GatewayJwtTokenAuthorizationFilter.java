@@ -1,8 +1,8 @@
-package academy.devdojo.youtube.gateway.security.filter;
+package br.edu.ufrn.gateway.security.filter;
 
-import academy.devdojo.youtube.core.property.JwtConfiguration;
-import academy.devdojo.youtube.security.filter.JwtTokenAuthorizationFilter;
-import academy.devdojo.youtube.security.token.converter.TokenConverter;
+import br.edu.ufrn.core.property.JwtConfiguration;
+import br.edu.ufrn.security.filter.JwtTokenAuthorizationFilter;
+import br.edu.ufrn.security.token.converter.TokenConverter;
 import com.netflix.zuul.context.RequestContext;
 import com.nimbusds.jwt.SignedJWT;
 import lombok.SneakyThrows;
@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-import static academy.devdojo.youtube.security.util.SecurityContextUtil.setSecurityContext;
+import static br.edu.ufrn.security.util.SecurityContextUtil.setSecurityContext;
 
 /**
  * @author William Suane

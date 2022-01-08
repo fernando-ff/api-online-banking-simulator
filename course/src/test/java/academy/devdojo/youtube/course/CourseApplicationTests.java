@@ -1,4 +1,4 @@
-package academy.devdojo.youtube.course;
+package br.edu.ufrn.course;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

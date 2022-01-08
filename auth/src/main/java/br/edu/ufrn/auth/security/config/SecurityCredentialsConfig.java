@@ -1,11 +1,11 @@
-package academy.devdojo.youtube.auth.security.config;
+package br.edu.ufrn.auth.security.config;
 
-import academy.devdojo.youtube.auth.security.filter.JwtUsernameAndPasswordAuthenticationFilter;
-import academy.devdojo.youtube.core.property.JwtConfiguration;
-import academy.devdojo.youtube.security.config.SecurityTokenConfig;
-import academy.devdojo.youtube.security.filter.JwtTokenAuthorizationFilter;
-import academy.devdojo.youtube.security.token.converter.TokenConverter;
-import academy.devdojo.youtube.security.token.creator.TokenCreator;
+import br.edu.ufrn.auth.security.filter.JwtUsernameAndPasswordAuthenticationFilter;
+import br.edu.ufrn.core.property.JwtConfiguration;
+import br.edu.ufrn.security.config.SecurityTokenConfig;
+import br.edu.ufrn.security.filter.JwtTokenAuthorizationFilter;
+import br.edu.ufrn.security.token.converter.TokenConverter;
+import br.edu.ufrn.security.token.creator.TokenCreator;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;

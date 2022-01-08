@@ -1,8 +1,8 @@
-package academy.devdojo.youtube.auth.security.filter;
+package br.edu.ufrn.auth.security.filter;
 
-import academy.devdojo.youtube.core.model.ApplicationUser;
-import academy.devdojo.youtube.core.property.JwtConfiguration;
-import academy.devdojo.youtube.security.token.creator.TokenCreator;
+import br.edu.ufrn.core.model.ApplicationUser;
+import br.edu.ufrn.core.property.JwtConfiguration;
+import br.edu.ufrn.security.token.creator.TokenCreator;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nimbusds.jwt.SignedJWT;
 import lombok.RequiredArgsConstructor;

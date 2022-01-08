@@ -1,7 +1,7 @@
-package academy.devdojo.youtube.auth.security.user;
+package br.edu.ufrn.auth.security.user;
 
-import academy.devdojo.youtube.core.model.ApplicationUser;
-import academy.devdojo.youtube.core.repository.ApplicationUserRepository;
+import br.edu.ufrn.core.model.ApplicationUser;
+import br.edu.ufrn.core.repository.ApplicationUserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

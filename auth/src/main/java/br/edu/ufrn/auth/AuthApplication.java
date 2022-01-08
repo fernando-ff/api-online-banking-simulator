@@ -1,6 +1,6 @@
-package academy.devdojo.youtube.auth;
+package br.edu.ufrn.auth;
 
-import academy.devdojo.youtube.core.property.JwtConfiguration;
+import br.edu.ufrn.core.property.JwtConfiguration;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
@@ -10,11 +10,11 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-@EntityScan({"academy.devdojo.youtube.core.model"})
-@EnableJpaRepositories({"academy.devdojo.youtube.core.repository"})
+@EntityScan({"br.edu.ufrn.core.model"})
+@EnableJpaRepositories({"br.edu.ufrn.core.repository"})
 @EnableEurekaClient
 @EnableConfigurationProperties(value = JwtConfiguration.class)
-@ComponentScan("academy.devdojo.youtube")
+@ComponentScan("br.edu.ufrn")
 public class AuthApplication {
 
     public static void main(String[] args) {

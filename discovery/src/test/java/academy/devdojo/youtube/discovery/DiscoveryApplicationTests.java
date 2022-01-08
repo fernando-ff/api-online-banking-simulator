@@ -1,4 +1,4 @@
-package academy.devdojo.youtube.discovery;
+package br.edu.ufrn.discovery;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

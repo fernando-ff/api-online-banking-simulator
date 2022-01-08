@@ -1,6 +1,6 @@
-package academy.devdojo.youtube.auth.endpoint.controller;
+package br.edu.ufrn.auth.endpoint.controller;
 
-import academy.devdojo.youtube.core.model.ApplicationUser;
+import br.edu.ufrn.core.model.ApplicationUser;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.http.HttpStatus;
