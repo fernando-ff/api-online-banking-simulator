@@ -15,26 +15,24 @@ After that execute the next commands:
 ```
  $~/cd core
  $~/core/ mvn clean install -DskipTests
- $~/cd ..
  
  $~/cd token
  $~/token/ mvn clean install -DskipTests
- $~/cd ..
 
  $~/cd discorery
  $~/discovery/ mvn clean install -DskipTests
- $~/cd ..
+ $-/discovery/ java -jar target/discovery.jar
 
  $~/cd gateway
  $~/gateway/ mvn clean install -DskipTests
- $~/cd ..
+ $-/gateway/ java -jar target/discovery.jar
 
  $~/cd auth 
  $~/auth/ mvn clean install -DskipTests
- $~/cd ..
+ $~/auth/ java -jar target/course.jar
 
  $~/cd course
  $~/course/ mvn clean install -DskipTests
- $~/cd ..
+ $~/auth/ java -jar target/course.jar
 
  ```
