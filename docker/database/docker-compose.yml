@@ -1,0 +1,24 @@
+version: '3.9'
+
+networks:
+  onlinebancksimulator-network:
+    name: ${NETWORK_NAME}
+    external: true
+
+services:
+  mysql:
+    image: mysql/mysql-server:${MYSQL_VERSION}
+    container_name: ${MYSQL_NAME}
+    ports:
+      - ${MYSQL_PORT_EXTERNAL}:3306
+    volumes:
+      - ${MYSQL_PATH}:/var/lib/mysql
+    networks:
+      - onlinebancksimulator-network
+    environment:
+      MYSQL_ROOT_HOST: '%'
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USERNAME}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    restart: always
