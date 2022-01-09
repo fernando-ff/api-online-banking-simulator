@@ -42,3 +42,8 @@ After that execute the next commands:
  $~/auth/ java -jar target/course.jar
 
  ```
+<h2>References</h2>
+
+- https://www.youtube.com/watch?v=vxeMnM15gsI&list=PL62G310vn6nH_iMQoPMhIlK_ey1npyUUl
+- https://www.baeldung.com/dockerizing-spring-boot-application
+- https://docs.spring.io/spring-cloud-netflix/docs/current/reference/html/
