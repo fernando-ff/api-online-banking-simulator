@@ -5,6 +5,12 @@
 
 <img src="./assets/Migração monolitico para serviços.png"/>
 <h2>How to run the application</h2>
+If you don,t have the Mysql in your machine and have the docker and docker compose, there is a docker compose to set up a mysql inside a container, to run it, execute thhe next commands:
+
+```
+    $~/cd docker/database
+    $~/docker-compose up --build
+```
 
 First you need in the root execute the command:
 
