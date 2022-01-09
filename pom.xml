@@ -15,6 +15,7 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>monolito</module>
         <module>course</module>
         <module>core</module>
         <module>token</module>
