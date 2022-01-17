@@ -1,4 +1,4 @@
-package com.userfront.domain;
+package br.edu.ufrn.core.model.domain;
 
 import java.util.Date;
 

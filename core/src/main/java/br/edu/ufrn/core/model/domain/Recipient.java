@@ -1,4 +1,4 @@
-package com.userfront.domain;
+package br.edu.ufrn.core.model.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

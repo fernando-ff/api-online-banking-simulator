@@ -1,4 +1,4 @@
-package com.userfront.domain;
+package br.edu.ufrn.core.model.domain;
 
 import java.math.BigDecimal;
 import java.util.List;

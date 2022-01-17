@@ -1,4 +1,4 @@
-package com.userfront.domain.security;
+package br.edu.ufrn.core.model.domain.security;
 
 import org.springframework.security.core.GrantedAuthority;
 

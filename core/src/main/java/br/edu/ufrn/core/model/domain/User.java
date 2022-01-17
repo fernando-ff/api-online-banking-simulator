@@ -1,4 +1,4 @@
-package com.userfront.domain;
+package br.edu.ufrn.core.model.domain;
 
 import java.util.Collection;
 import java.util.HashSet;
@@ -19,8 +19,8 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.userfront.domain.security.Authority;
-import com.userfront.domain.security.UserRole;
+import br.edu.ufrn.core.model.domain.security.Authority;
+import br.edu.ufrn.core.model.domain.security.UserRole;
 
 @Entity
 public class User implements UserDetails{
