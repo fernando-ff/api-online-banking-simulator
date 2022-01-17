@@ -11,7 +11,7 @@
 
     <artifactId>account</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>course</name>
+    <name>account</name>
     <description>Microsserviço de conta</description>
 
     <properties>
@@ -35,7 +35,7 @@
     </dependencies>
 
     <build>
-        <finalName>course</finalName>
+        <finalName>account</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
