@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.test.context.jdbc.SqlConfig.TransactionMode;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +16,7 @@ import br.edu.ufrn.account.model.SavingsAccount;
 import br.edu.ufrn.account.model.SavingsTransaction;
 import br.edu.ufrn.account.model.User;
 import br.edu.ufrn.account.service.AccountService;
+import br.edu.ufrn.account.service.TransactionService;
 import br.edu.ufrn.account.service.UserService;
 
 
@@ -31,7 +31,7 @@ public class AccountController {
 	private AccountService accountService;
 	
 	@Autowired
-	private TransactionMode transactionService;
+	private TransactionService transactionService;
 	
 	@RequestMapping("/primaryAccount")
 	public String primaryAccount(Model model, Principal principal) {
