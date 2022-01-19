@@ -20,13 +20,23 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import br.edu.ufrn.core.model.security.Authority;
 import br.edu.ufrn.core.model.security.UserRole;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
 @Builder
-public class User implements UserDetails{
+@AllArgsConstructor
+@ToString
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public class User implements UserDetails, AbstractEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -49,17 +59,19 @@ public class User implements UserDetails{
     @OneToOne
     private SavingsAccount savingsAccount;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JsonIgnore
-    private List<Appointment> appointmentList;
+    private Set<Appointment> appointmentList;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Recipient> recipientList;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Set<Recipient> recipientList;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JsonIgnore
     private Set<UserRole> userRoles = new HashSet<>();
-
+    public User(){
+        
+    }
     public Set<UserRole> getUserRoles() {
         return userRoles;
     }
@@ -116,19 +128,19 @@ public class User implements UserDetails{
         this.phone = phone;
     }
 
-    public List<Appointment> getAppointmentList() {
+    public Set<Appointment> getAppointmentList() {
         return appointmentList;
     }
 
-    public void setAppointmentList(List<Appointment> appointmentList) {
+    public void setAppointmentList(Set<Appointment> appointmentList) {
         this.appointmentList = appointmentList;
     }
 
-    public List<Recipient> getRecipientList() {
+    public Set<Recipient> getRecipientList() {
         return recipientList;
     }
 
-    public void setRecipientList(List<Recipient> recipientList) {
+    public void setRecipientList(Set<Recipient> recipientList) {
         this.recipientList = recipientList;
     }
 
@@ -160,22 +172,7 @@ public class User implements UserDetails{
         this.enabled = enabled;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "userId=" + id +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
-                ", phone='" + phone + '\'' +
-                ", appointmentList=" + appointmentList +
-                ", recipientList=" + recipientList +
-                ", userRoles=" + userRoles +
-                '}';
-    }
-
+  
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         Set<GrantedAuthority> authorities = new HashSet<>();
