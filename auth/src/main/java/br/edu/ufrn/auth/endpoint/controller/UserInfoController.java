@@ -1,6 +1,6 @@
 package br.edu.ufrn.auth.endpoint.controller;
 
-import br.edu.ufrn.core.model.ApplicationUser;
+import br.edu.ufrn.core.model.User;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.http.HttpStatus;
@@ -22,9 +22,9 @@ import java.security.Principal;
 public class UserInfoController {
 
     @GetMapping(path = "info", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    @ApiOperation(value = "Will retrieve the information from the user available in the token", response = ApplicationUser.class)
-    public ResponseEntity<ApplicationUser> getUserInfo(Principal principal) {
-        ApplicationUser applicationUser = (ApplicationUser) ((UsernamePasswordAuthenticationToken) principal).getPrincipal();
+    @ApiOperation(value = "Will retrieve the information from the user available in the token", response = User.class)
+    public ResponseEntity<User> getUserInfo(Principal principal) {
+        User applicationUser = (User) ((UsernamePasswordAuthenticationToken) principal).getPrincipal();
         return new ResponseEntity<>(applicationUser, HttpStatus.OK);
     }
 }

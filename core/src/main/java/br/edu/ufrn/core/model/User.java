@@ -1,4 +1,4 @@
-package br.edu.ufrn.core.model.domain;
+package br.edu.ufrn.core.model;
 
 import java.util.Collection;
 import java.util.HashSet;
@@ -18,17 +18,20 @@ import javax.persistence.OneToOne;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import br.edu.ufrn.core.model.security.Authority;
+import br.edu.ufrn.core.model.security.UserRole;
+import lombok.Builder;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import br.edu.ufrn.core.model.domain.security.Authority;
-import br.edu.ufrn.core.model.domain.security.UserRole;
 
 @Entity
+@Builder
 public class User implements UserDetails{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "userId", nullable = false, updatable = false)
-    private Long userId;
+    private Long id;
     private String username;
     private String password;
     private String firstName;
@@ -65,12 +68,12 @@ public class User implements UserDetails{
         this.userRoles = userRoles;
     }
 
-    public Long getUserId() {
-        return userId;
+    public Long getId() {
+        return id;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setId(Long userId) {
+        this.id = userId;
     }
 
     public String getUsername() {
@@ -160,7 +163,7 @@ public class User implements UserDetails{
     @Override
     public String toString() {
         return "User{" +
-                "userId=" + userId +
+                "userId=" + id +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", firstName='" + firstName + '\'' +

@@ -1,4 +1,4 @@
-package br.edu.ufrn.core.model.domain;
+package br.edu.ufrn.core.model;
 
 import java.util.Date;
 

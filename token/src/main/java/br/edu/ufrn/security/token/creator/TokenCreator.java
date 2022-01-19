@@ -15,7 +15,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Service;
 
-import br.edu.ufrn.core.model.ApplicationUser;
+import br.edu.ufrn.core.model.User;
 import br.edu.ufrn.core.property.JwtConfiguration;
 
 import java.security.KeyPair;
@@ -39,7 +39,7 @@ public class TokenCreator {
     public SignedJWT createSignedJWT(Authentication auth) {
         log.info("Starting to create the signed JWT");
 
-        ApplicationUser applicationUser = (ApplicationUser) auth.getPrincipal();
+        User applicationUser = (User) auth.getPrincipal();
 
         JWTClaimsSet jwtClaimSet = createJWTClaimSet(auth, applicationUser);
 
@@ -66,7 +66,7 @@ public class TokenCreator {
 
     }
 
-    private JWTClaimsSet createJWTClaimSet(Authentication auth, ApplicationUser applicationUser) {
+    private JWTClaimsSet createJWTClaimSet(Authentication auth, User applicationUser) {
         log.info("Creating the JwtClaimSet Object for '{}'", applicationUser);
 
         return new JWTClaimsSet.Builder()

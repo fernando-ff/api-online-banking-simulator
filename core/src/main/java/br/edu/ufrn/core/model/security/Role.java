@@ -1,4 +1,4 @@
-package br.edu.ufrn.core.model.domain.security;
+package br.edu.ufrn.core.model.security;
 
 import javax.persistence.*;
 import java.util.HashSet;

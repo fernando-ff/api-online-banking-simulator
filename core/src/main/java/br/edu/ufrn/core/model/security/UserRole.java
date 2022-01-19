@@ -1,8 +1,8 @@
-package br.edu.ufrn.core.model.domain.security;
-
-import br.edu.ufrn.core.model.domain.User;
+package br.edu.ufrn.core.model.security;
 
 import javax.persistence.*;
+
+import br.edu.ufrn.core.model.User;
 
 @Entity
 @Table(name="user_role")
