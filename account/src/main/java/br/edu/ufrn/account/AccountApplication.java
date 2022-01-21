@@ -1,4 +1,4 @@
-package br.edu.ufrn.course;
+package br.edu.ufrn.account;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -14,10 +14,10 @@ import br.edu.ufrn.core.property.JwtConfiguration;
 @EnableJpaRepositories({"br.edu.ufrn.core.repository"})
 @EnableConfigurationProperties(value = JwtConfiguration.class)
 @ComponentScan("br.edu.ufrn")
-public class CourseApplication {
+public class AccountApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(CourseApplication.class, args);
+        SpringApplication.run(AccountApplication.class, args);
     }
 
 }

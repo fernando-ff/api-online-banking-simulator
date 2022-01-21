@@ -9,6 +9,17 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.edu.ufrn.account.dao.PrimaryAccountDao;
+import br.edu.ufrn.account.dao.PrimaryTransactionDao;
+import br.edu.ufrn.account.dao.RecipientDao;
+import br.edu.ufrn.account.dao.SavingsAccountDao;
+import br.edu.ufrn.account.dao.SavingsTransactionDao;
+import br.edu.ufrn.account.model.PrimaryAccount;
+import br.edu.ufrn.account.model.PrimaryTransaction;
+import br.edu.ufrn.account.model.Recipient;
+import br.edu.ufrn.account.model.SavingsAccount;
+import br.edu.ufrn.account.model.SavingsTransaction;
+import br.edu.ufrn.account.model.User;
 import br.edu.ufrn.account.service.TransactionService;
 import br.edu.ufrn.account.service.UserService;
 
