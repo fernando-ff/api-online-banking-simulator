@@ -1,7 +1,7 @@
 package br.edu.ufrn.auth.security.user;
 
-import br.edu.ufrn.core.model.ApplicationUser;
-import br.edu.ufrn.core.repository.ApplicationUserRepository;
+import br.edu.ufrn.core.model.User;
+import br.edu.ufrn.core.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,50 +23,50 @@ import static org.springframework.security.core.authority.AuthorityUtils.commaSe
 @Slf4j
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class UserDetailsServiceImpl implements UserDetailsService {
-    private final ApplicationUserRepository applicationUserRepository;
+    private final UserRepository applicationUserRepository;
 
     @Override
     public UserDetails loadUserByUsername(String username) {
         log.info("Searching in the DB the user by username '{}'", username);
 
-        ApplicationUser applicationUser = applicationUserRepository.findByUsername(username);
+        User applicationUser = applicationUserRepository.findByUsername(username);
 
-        log.info("ApplicationUser found '{}'", applicationUser);
+        log.info("User found '{}'", applicationUser);
 
         if (applicationUser == null)
             throw new UsernameNotFoundException(String.format("Application user '%s' not found", username));
 
-        return new CustomUserDetails(applicationUser);
+        return applicationUser;
     }
 
-    private static final class CustomUserDetails extends ApplicationUser implements UserDetails {
-        CustomUserDetails(@NotNull ApplicationUser applicationUser) {
-            super(applicationUser);
-        }
+    // private static final class CustomUserDetails extends User implements UserDetails {
+    //     CustomUserDetails(@NotNull User applicationUser) {
+    //         super(applicationUser);
+    //     }
 
-        @Override
-        public Collection<? extends GrantedAuthority> getAuthorities() {
-            return commaSeparatedStringToAuthorityList("ROLE_" + this.getRole());
-        }
+    //     @Override
+    //     public Collection<? extends GrantedAuthority> getAuthorities() {
+    //         return commaSeparatedStringToAuthorityList("ROLE_" + this.getRole());
+    //     }
 
-        @Override
-        public boolean isAccountNonExpired() {
-            return true;
-        }
+    //     @Override
+    //     public boolean isAccountNonExpired() {
+    //         return true;
+    //     }
 
-        @Override
-        public boolean isAccountNonLocked() {
-            return true;
-        }
+    //     @Override
+    //     public boolean isAccountNonLocked() {
+    //         return true;
+    //     }
 
-        @Override
-        public boolean isCredentialsNonExpired() {
-            return true;
-        }
+    //     @Override
+    //     public boolean isCredentialsNonExpired() {
+    //         return true;
+    //     }
 
-        @Override
-        public boolean isEnabled() {
-            return true;
-        }
-    }
+    //     @Override
+    //     public boolean isEnabled() {
+    //         return true;
+    //     }
+    // }
 }

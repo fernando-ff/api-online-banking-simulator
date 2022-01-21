@@ -5,7 +5,6 @@ import br.edu.ufrn.course.endpoint.service.CourseService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -20,7 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("v1/admin/course")
-@Slf4j
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 @Api(value = "Endpoints to manage course")
 public class CourseController {

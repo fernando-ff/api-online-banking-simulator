@@ -7,7 +7,6 @@ import br.edu.ufrn.security.util.SecurityContextUtil;
 import com.nimbusds.jwt.SignedJWT;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.NonNull;
 import org.springframework.web.filter.OncePerRequestFilter;
@@ -23,7 +22,6 @@ import static org.apache.commons.lang3.StringUtils.equalsIgnoreCase;
 /**
  * @author William Suane
  */
-@Slf4j
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class JwtTokenAuthorizationFilter extends OncePerRequestFilter {
     protected final JwtConfiguration jwtConfiguration;

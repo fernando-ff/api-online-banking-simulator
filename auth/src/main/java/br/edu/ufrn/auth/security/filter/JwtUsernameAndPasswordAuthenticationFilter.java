@@ -1,6 +1,6 @@
 package br.edu.ufrn.auth.security.filter;
 
-import br.edu.ufrn.core.model.ApplicationUser;
+import br.edu.ufrn.core.model.User;
 import br.edu.ufrn.core.property.JwtConfiguration;
 import br.edu.ufrn.security.token.creator.TokenCreator;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -35,7 +35,7 @@ public class JwtUsernameAndPasswordAuthenticationFilter extends UsernamePassword
     @SneakyThrows
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) {
         log.info("Attempting authentication. . .");
-        ApplicationUser applicationUser = new ObjectMapper().readValue(request.getInputStream(), ApplicationUser.class);
+        User applicationUser = new ObjectMapper().readValue(request.getInputStream(), User.class);
 
         if (applicationUser == null)
             throw new UsernameNotFoundException("Unable to retrieve the username or password");
