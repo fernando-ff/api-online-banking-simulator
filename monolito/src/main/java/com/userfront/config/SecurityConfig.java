@@ -1,6 +1,5 @@
 package com.userfront.config;
 
-import java.security.SecureRandom;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -30,7 +29,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder());
+        return new BCryptPasswordEncoder();
     }
 
     private static final String[] PUBLIC_MATCHERS = {
