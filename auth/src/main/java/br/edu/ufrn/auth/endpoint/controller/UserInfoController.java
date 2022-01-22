@@ -37,6 +37,7 @@ public class UserInfoController {
 
 	@PostMapping("/save")
     public ResponseEntity<User> getUserInfo(@RequestBody User user) {
+
         User userSave = userSerice.save(user);
         return new ResponseEntity<>(userSave, HttpStatus.OK);
     }
