@@ -1,8 +1,7 @@
-package br.edu.ufrn.account.model;
+package br.edu.ufrn.core.model;
 
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -18,18 +17,28 @@ import javax.persistence.OneToOne;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import br.edu.ufrn.account.model.security.Authority;
-import br.edu.ufrn.account.model.security.UserRole;
+import br.edu.ufrn.core.model.security.Authority;
+import br.edu.ufrn.core.model.security.UserRole;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 @Entity
-public class User implements UserDetails {
+@Builder
+@AllArgsConstructor
+@ToString
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public class User implements UserDetails, AbstractEntity{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "user_id", nullable = false, updatable = false)
-    private Long userId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "userId", nullable = false, updatable = false)
+    private Long id;
     private String username;
     private String password;
     private String firstName;
@@ -47,17 +56,19 @@ public class User implements UserDetails {
     @OneToOne
     private SavingsAccount savingsAccount;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JsonIgnore
-    private List<Appointment> appointmentList;
+    private Set<Appointment> appointmentList;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Recipient> recipientList;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Set<Recipient> recipientList;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JsonIgnore
     private Set<UserRole> userRoles = new HashSet<>();
-
+    public User(){
+        
+    }
     public Set<UserRole> getUserRoles() {
         return userRoles;
     }
@@ -66,12 +77,12 @@ public class User implements UserDetails {
         this.userRoles = userRoles;
     }
 
-    public Long getUserId() {
-        return userId;
+    public Long getId() {
+        return id;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setId(Long userId) {
+        this.id = userId;
     }
 
     public String getUsername() {
@@ -114,19 +125,19 @@ public class User implements UserDetails {
         this.phone = phone;
     }
 
-    public List<Appointment> getAppointmentList() {
+    public Set<Appointment> getAppointmentList() {
         return appointmentList;
     }
 
-    public void setAppointmentList(List<Appointment> appointmentList) {
+    public void setAppointmentList(Set<Appointment> appointmentList) {
         this.appointmentList = appointmentList;
     }
 
-    public List<Recipient> getRecipientList() {
+    public Set<Recipient> getRecipientList() {
         return recipientList;
     }
 
-    public void setRecipientList(List<Recipient> recipientList) {
+    public void setRecipientList(Set<Recipient> recipientList) {
         this.recipientList = recipientList;
     }
 
@@ -158,22 +169,7 @@ public class User implements UserDetails {
         this.enabled = enabled;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "userId=" + userId +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
-                ", phone='" + phone + '\'' +
-                ", appointmentList=" + appointmentList +
-                ", recipientList=" + recipientList +
-                ", userRoles=" + userRoles +
-                '}';
-    }
-
+  
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         Set<GrantedAuthority> authorities = new HashSet<>();
@@ -203,4 +199,6 @@ public class User implements UserDetails {
     public boolean isEnabled() {
         return enabled;
     }
+
+
 }

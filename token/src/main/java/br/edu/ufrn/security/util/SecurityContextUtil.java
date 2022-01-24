@@ -8,7 +8,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 
-import br.edu.ufrn.core.model.ApplicationUser;
+import br.edu.ufrn.core.model.User;
 
 import java.util.List;
 
@@ -31,11 +31,10 @@ public class SecurityContextUtil {
                 throw new JOSEException("Username missing from JWT");
 
             List<String> authorities = claims.getStringListClaim("authorities");
-            ApplicationUser applicationUser = ApplicationUser
+            User applicationUser = User
                     .builder()
                     .id(claims.getLongClaim("userId"))
                     .username(username)
-                    .role(String.join(",", authorities))
                     .build();
             UsernamePasswordAuthenticationToken auth = new UsernamePasswordAuthenticationToken(applicationUser, null, createAuthorities(authorities));
             auth.setDetails(signedJWT.serialize());

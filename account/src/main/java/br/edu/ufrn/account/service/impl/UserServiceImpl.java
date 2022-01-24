@@ -31,9 +31,6 @@ public class UserServiceImpl implements UserService {
 	
 	@Autowired
     private RoleDao roleDao;
-
-    @Autowired
-    private BCryptPasswordEncoder passwordEncoder;
     
     @Autowired
     private AccountService accountService;
@@ -57,7 +54,7 @@ public class UserServiceImpl implements UserService {
         if (localUser != null) {
             LOG.info("User with username {} already exist. Nothing will be done. ", user.getUsername());
         } else {
-            String encryptedPassword = passwordEncoder.encode(user.getPassword());
+            String encryptedPassword = new BCryptPasswordEncoder().encode(user.getPassword());
             user.setPassword(encryptedPassword);
 
             for (UserRole ur : userRoles) {

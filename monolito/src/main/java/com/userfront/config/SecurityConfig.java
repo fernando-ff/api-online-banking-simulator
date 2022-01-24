@@ -1,6 +1,5 @@
 package com.userfront.config;
 
-import java.security.SecureRandom;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -30,7 +29,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder(12, new SecureRandom(SALT.getBytes()));
+        return new BCryptPasswordEncoder();
     }
 
     private static final String[] PUBLIC_MATCHERS = {
@@ -65,11 +64,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 
 
-    @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-//    	 auth.inMemoryAuthentication().withUser("user").password("password").roles("USER"); //This is in-memory authentication
-        auth.userDetailsService(userSecurityService).passwordEncoder(passwordEncoder());
-    }
+//     @Autowired
+//     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+// //    	 auth.inMemoryAuthentication().withUser("user").password("password").roles("USER"); //This is in-memory authentication
+//         auth.userDetailsService(userSecurityService).passwordEncoder(passwordEncoder());
+//     }
 
+
+    @Autowired
+public void configureGlobal(AuthenticationManagerBuilder auth)
+        throws Exception {
+    auth.inMemoryAuthentication()
+            .withUser("admin")
+            .password("{bcrypt}$2a$09$niLGxullQNkHiNWuUZiCKOudH93K5aSxCvGqOLssD351l1eQG2HcC")
+            .roles("ADMIN");
+}
 
 }
