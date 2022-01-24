@@ -26,3 +26,4 @@ settings.json
 /nbdist/
 /.nb-gradle/
 /build/
+/bin/
