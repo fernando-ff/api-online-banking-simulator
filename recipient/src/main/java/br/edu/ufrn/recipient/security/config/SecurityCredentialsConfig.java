@@ -1,4 +1,4 @@
-package br.edu.ufrn.course.security.config;
+package br.edu.ufrn.recipient.security.config;
 
 import br.edu.ufrn.core.property.JwtConfiguration;
 import br.edu.ufrn.security.config.SecurityTokenConfig;
