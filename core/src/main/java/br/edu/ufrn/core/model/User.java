@@ -36,7 +36,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 public class User implements UserDetails, AbstractEntity{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "userId", nullable = false, updatable = false)
     private Long id;
     private String username;
