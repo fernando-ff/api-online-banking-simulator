@@ -20,7 +20,7 @@ public class AuthApplicationTests {
 
         System.out.println();
         System.out.println("vvvvvvvvvvvvv");
-        System.out.println(new BCryptPasswordEncoder().encode("123"));
+        System.out.println("SENHA: "+new BCryptPasswordEncoder().encode("123"));
         System.out.println("^^^^^^^^^^^");
         System.out.println();
     }
