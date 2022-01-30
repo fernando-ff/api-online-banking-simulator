@@ -17,6 +17,7 @@
     <modules>
         <module>monolito</module>
         <module>account</module>
+        <module>recipient</module>
         <module>core</module>
         <module>token</module>
     </modules>
